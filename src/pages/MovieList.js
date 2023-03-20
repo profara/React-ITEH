@@ -1,20 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 import { Card } from "../components";
 
-export const MovieList = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    async function fetchMovies() {
-      const response = await fetch(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=26b6868804601d44d5ec1fb3c1ba2126"
-      );
-      const data = await response.json();
-      setMovies(data.results);
-    }
-    fetchMovies();
-  }, []);
+export const MovieList = ({ apiPath }) => {
+  const { data: movies } = useFetch(apiPath);
 
   return (
     <main>
