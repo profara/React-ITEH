@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
-import PageNotFoundImage from "../assets/images/pagenotfound.png";
+import { useTitle } from "../hooks/useTitle";
 import { Button } from "../components";
+import PageNotFoundImage from "../assets/images/pagenotfound.png";
+
 export const PageNotFound = () => {
+  useTitle("Page Not Found");
+
   return (
     <main>
       <section className="flex flex-col justify-center px-2">
